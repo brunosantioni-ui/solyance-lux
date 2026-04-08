@@ -53,7 +53,7 @@ function mobileGoTo(n) {
     book.classList.add('mobile-page-transition');
   }
   render();
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  // scroll reset handled in render()
 }
 
 // Build mobile menu links
@@ -663,111 +663,129 @@ canvas{max-height:200px}
 
 /* ═══ MOBILE LAYOUT ═══ */
 @media (max-width: 900px) {
-  html,body{overflow-y:auto;overflow-x:hidden}
-  .scene{perspective:none;height:auto;min-height:100vh;min-height:100dvh;margin-top:0;padding-bottom:72px}
-  .book{width:100vw;height:auto;min-height:auto;transform:none;box-shadow:none;border-radius:0}
+  /* CORE: fixed viewport, NO document scroll — like a real book */
+  html,body{overflow:hidden!important;height:100%;height:100dvh}
+  .scene{perspective:none;height:calc(100vh - 56px);height:calc(100dvh - 56px);margin-top:0;padding:0;overflow:hidden}
+  .book{width:100vw;height:calc(100vh - 56px);height:calc(100dvh - 56px);transform:none;box-shadow:none;border-radius:0;overflow:hidden}
   .spine{display:none!important}
-  .page-left{position:relative;width:100%!important;height:auto;min-height:auto;border-radius:0!important}
+  .page-left{position:relative;width:100%!important;height:100%;border-radius:0!important;overflow:hidden}
   .page-right-under{display:none!important}
   .flip-container{display:none!important}
   .flip-front{display:none!important}
   .flip-back{display:none!important}
   .flip-container::after{display:none!important}
-  .page-inner{min-height:auto;height:auto;overflow:visible}
-  .scrollable{overflow-y:visible;height:auto;max-height:none}
-  .pad{padding:36px 22px 48px}
-  .pad-sm{padding:32px 20px 44px}
-  
+
+  /* Page content: fills viewport, scrolls internally if needed */
+  .page-inner{height:100%;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+  .scrollable{overflow-y:auto;height:100%;-webkit-overflow-scrolling:touch}
+  .pad{padding:20px 20px 28px}
+  .pad-sm{padding:18px 18px 24px}
+
+  /* Scroll fade hint at bottom when content overflows */
+  .page-inner::after{
+    content:'';position:sticky;bottom:0;left:0;right:0;
+    display:block;height:32px;pointer-events:none;
+    background:linear-gradient(to top,rgba(10,8,4,0.6),transparent);
+    margin-top:-32px;z-index:10;
+  }
+  .page-inner.cream::after,.page-inner.ivory::after{
+    background:linear-gradient(to top,rgba(247,243,236,0.8),transparent);
+  }
+
   /* Hide desktop nav */
   .nav-arrow{display:none!important}
   .tab-bar{display:none!important}
   .page-counter{display:none!important}
   .kb-hint{display:none!important}
-  
+
   /* Show mobile nav */
   .hamburger{display:flex}
   .mobile-menu{display:block}
   .mobile-overlay{display:block}
   .mobile-bottom-nav{display:flex}
-  
-  /* Typography — bigger for smartphone readability */
-  .pg-title{font-size:clamp(1.8rem,7vw,2.6rem)!important;margin-bottom:20px!important}
-  .pg-body{font-size:1.05rem!important;line-height:2!important;color:rgba(255,255,255,0.82)!important}
-  .cream .pg-body,.ivory .pg-body{color:#2A2218!important}
-  .hero-page h1{font-size:clamp(2rem,7vw,3rem)!important}
-  .pg-label{font-size:0.82rem!important;letter-spacing:0.2em!important;margin-bottom:20px!important}
-  .pg-sep{width:80px!important;height:2px!important;margin:22px 0!important}
 
-  /* Cards — more padding, bigger text */
-  .card-dark,.card-light{padding:22px 24px;margin-bottom:18px;border-radius:14px}
-  .card-dark h4,.card-light h4{font-size:1rem!important;margin-bottom:10px!important}
-  .card-dark p,.card-light p{font-size:1rem!important;line-height:1.9!important}
+  /* Typography — compact for viewport-fit */
+  .pg-title{font-size:clamp(1.4rem,5.5vw,2rem)!important;margin-bottom:12px!important}
+  .pg-body{font-size:0.82rem!important;line-height:1.75!important}
+  .hero-page h1{font-size:clamp(1.8rem,6vw,2.6rem)!important}
+  .pg-label{font-size:0.65rem!important;letter-spacing:0.2em!important;margin-bottom:12px!important}
+  .pg-sep{width:48px!important;height:1px!important;margin:10px 0!important}
 
-  /* Stats — bigger numbers */
-  .stat-num{font-size:clamp(2.4rem,8vw,3.2rem)!important}
-  .stat-lbl{font-size:0.82rem!important;margin-top:8px!important}
-  .stat-block{padding:28px 14px}
+  /* Cards — compact */
+  .card-dark,.card-light{padding:14px 16px;margin-bottom:10px;border-radius:10px}
+  .card-dark h4,.card-light h4{font-size:0.78rem!important;margin-bottom:5px!important}
+  .card-dark p,.card-light p{font-size:0.78rem!important;line-height:1.7!important}
 
-  /* Tables — horizontal scroll wrapper */
-  .ctbl{font-size:0.82rem}
-  .ctbl th,.ctbl td{padding:12px 14px;white-space:nowrap}
-  .ctbl td:first-child,.ctbl th:first-child{white-space:normal;min-width:100px}
+  /* Stats */
+  .stat-num{font-size:clamp(1.8rem,6vw,2.4rem)!important}
+  .stat-lbl{font-size:0.65rem!important;margin-top:4px!important}
+  .stat-block{padding:16px 10px}
+
+  /* Tables */
+  .ctbl{font-size:0.7rem}
+  .ctbl th,.ctbl td{padding:8px 10px}
 
   /* Grid — single column on mobile */
   .dual{grid-template-columns:1fr}
 
   /* Charts */
-  .chart-wrap{padding:18px;margin-bottom:20px;border-radius:14px}
-  canvas{max-height:220px}
+  .chart-wrap{padding:12px;margin-bottom:12px;border-radius:10px}
+  canvas{max-height:150px}
 
-  /* Social cards — comfortable sizing */
-  .sm-card{margin-bottom:28px;border-radius:18px}
-  .sm-card-img{max-height:500px;height:auto;object-fit:contain!important}
-  .sm-text{font-size:1.1rem!important;line-height:1.85!important}
-  .sm-author{font-size:1.1rem!important}
-  .sm-tags{font-size:1.05rem!important}
-  .sm-handle{font-size:0.9rem!important}
-  .sm-card-body{padding:24px 22px!important}
-  .sm-card-header{padding:16px 22px!important}
-  .sm-avatar{width:50px!important;height:50px!important}
-  .sm-stats{font-size:0.95rem!important}
+  /* Social cards */
+  .sm-card{margin-bottom:16px;border-radius:14px}
+  .sm-card-img{max-height:280px;height:auto;object-fit:contain!important}
+  .sm-text{font-size:0.88rem!important;line-height:1.7!important}
+  .sm-author{font-size:0.9rem!important}
+  .sm-tags{font-size:0.82rem!important}
+  .sm-handle{font-size:0.75rem!important}
+  .sm-card-body{padding:16px 18px!important}
+  .sm-card-header{padding:12px 16px!important}
+  .sm-avatar{width:40px!important;height:40px!important}
+  .sm-stats{font-size:0.78rem!important}
 
-  /* SONCAS — bigger text */
-  .sc{padding:20px;margin-bottom:16px;border-radius:12px}
-  .sc h4{font-size:0.9rem!important}
-  .sc p{font-size:1rem!important;line-height:1.85!important}
-  .sc .pitch{font-size:0.95rem!important;line-height:1.75!important;padding:14px 18px}
+  /* SONCAS */
+  .sc{padding:12px 14px;margin-bottom:8px;border-radius:8px}
+  .sc h4{font-size:0.72rem!important}
+  .sc p{font-size:0.78rem!important;line-height:1.65!important}
+  .sc .pitch{font-size:0.75rem!important;line-height:1.6!important;padding:10px 12px}
+  .sc-letter{font-size:1.8rem}
 
-  /* Q&A — bigger, more tappable */
-  .qa{padding:18px 20px;margin-bottom:12px;border-radius:12px}
-  .qa-q{font-size:1rem!important}
-  .qa-a{font-size:0.98rem!important;line-height:1.85!important}
+  /* Q&A */
+  .qa{padding:12px 14px;margin-bottom:8px;border-radius:8px}
+  .qa-q{font-size:0.8rem!important}
+  .qa-a{font-size:0.78rem!important;line-height:1.7!important}
 
   /* Testimonials */
-  .testi{padding:20px 0 20px 22px;margin-bottom:22px}
-  .testi-text{font-size:1.15rem!important;line-height:1.7!important}
-  .testi-author{font-size:0.82rem!important}
+  .testi{padding:12px 0 12px 14px;margin-bottom:12px}
+  .testi-text{font-size:0.92rem!important;line-height:1.55!important}
+  .testi-author{font-size:0.68rem!important}
 
-  /* Certs — bigger pills */
-  .cert{font-size:0.78rem;padding:8px 16px;margin:5px 3px;border-radius:24px}
+  /* Certs */
+  .cert{font-size:0.62rem;padding:4px 10px;margin:3px 2px;border-radius:16px}
 
-  /* Alerts — bigger text */
-  .alert-red,.alert-green{padding:20px 22px;margin-bottom:18px;border-radius:12px}
-  .alert-red h5,.alert-green h5{font-size:0.88rem!important;margin-bottom:10px!important}
-  .alert-red p,.alert-green p{font-size:1rem!important;line-height:1.9!important}
+  /* Alerts */
+  .alert-red,.alert-green{padding:12px 14px;margin-bottom:10px;border-radius:8px}
+  .alert-red h5,.alert-green h5{font-size:0.72rem!important;margin-bottom:5px!important}
+  .alert-red p,.alert-green p{font-size:0.78rem!important;line-height:1.7!important}
 
   /* Gold badge */
-  .gold-badge{font-size:0.78rem;padding:8px 20px;margin-bottom:28px}
+  .gold-badge{font-size:0.65rem;padding:5px 14px;margin-bottom:16px}
 
   /* Progress bars */
-  .pbar-label{font-size:0.82rem!important}
-  .pbar-track{height:10px;border-radius:6px}
+  .pbar{margin:6px 0}
+  .pbar-label{font-size:0.68rem!important}
+  .pbar-track{height:6px;border-radius:4px}
 
-  /* Calculator inputs */
-  .calc-in{font-size:1rem;padding:14px 18px}
-  .calc-label{font-size:0.78rem}
-  .res-val{font-size:2.6rem}
-  .res-lbl{font-size:0.78rem}
+  /* Calculator */
+  .calc-in{font-size:0.85rem;padding:10px 14px}
+  .calc-label{font-size:0.65rem}
+  .res-val{font-size:2rem}
+  .res-lbl{font-size:0.65rem}
+
+  /* Ring charts */
+  .ring-wrap{width:70px;height:70px}
+  .ring-label{font-size:1rem!important}
 
   /* Page counter dots */
   .page-dots{gap:4px}
@@ -775,26 +793,32 @@ canvas{max-height:200px}
 }
 
 @media (max-width: 480px) {
-  .pad{padding:28px 16px 40px}
-  .pad-sm{padding:24px 14px 36px}
-  .pg-title{font-size:clamp(1.5rem,6.5vw,2rem)!important}
-  .pg-body{font-size:0.98rem!important;line-height:1.95!important}
-  .stat-num{font-size:clamp(2rem,7vw,2.6rem)!important}
-  .stat-lbl{font-size:0.78rem!important}
-  .card-dark,.card-light{padding:18px 18px}
-  .card-dark p,.card-light p{font-size:0.95rem!important}
-  .sc{padding:16px}
-  .sc p{font-size:0.95rem!important}
-  .qa{padding:16px 18px}
-  .qa-q{font-size:0.95rem!important}
-  .qa-a{font-size:0.92rem!important}
+  .pad{padding:16px 16px 24px}
+  .pad-sm{padding:14px 14px 20px}
+  .pg-title{font-size:clamp(1.2rem,5vw,1.6rem)!important}
+  .pg-body{font-size:0.78rem!important;line-height:1.7!important}
+  .stat-num{font-size:clamp(1.6rem,5vw,2rem)!important}
+  .stat-lbl{font-size:0.62rem!important}
+  .card-dark,.card-light{padding:10px 12px}
+  .card-dark p,.card-light p{font-size:0.72rem!important}
+  .card-dark h4,.card-light h4{font-size:0.7rem!important}
+  .sc{padding:10px 12px}
+  .sc p{font-size:0.72rem!important}
+  .sc .pitch{font-size:0.7rem!important;padding:8px 10px}
+  .qa{padding:10px 12px}
+  .qa-q{font-size:0.75rem!important}
+  .qa-a{font-size:0.72rem!important}
   .scene{margin-top:0}
-  .hero-page .hero-tag{font-size:0.62rem!important;letter-spacing:2.5px!important}
-  .sm-card-img{max-height:400px;height:auto;object-fit:contain!important}
-  .sm-text{font-size:1rem!important}
+  .hero-page .hero-tag{font-size:0.55rem!important;letter-spacing:2px!important}
+  .sm-card-img{max-height:200px;height:auto;object-fit:contain!important}
+  .sm-text{font-size:0.78rem!important}
+  .sm-card-body{padding:12px 14px!important}
+  .sm-card-header{padding:10px 14px!important}
   .hero-page{min-height:60vh}
-  .alert-red p,.alert-green p{font-size:0.95rem!important}
-  .testi-text{font-size:1.05rem!important}
+  .alert-red p,.alert-green p{font-size:0.72rem!important}
+  .testi-text{font-size:0.85rem!important}
+  .chart-wrap{padding:10px}
+  canvas{max-height:120px}
 }
 
 /* Touch support */
@@ -806,32 +830,20 @@ canvas{max-height:200px}
 /* ═══ MOBILE READING EXPERIENCE ═══ */
 @media (max-width: 900px) {
   /* Smooth page transitions */
-  .book{transition:opacity 0.35s ease,transform 0.35s ease}
+  .book{transition:opacity 0.3s ease,transform 0.3s ease}
 
-  /* Cover page full height */
-  .page-left:first-child .page-inner{min-height:85vh;min-height:85dvh}
+  /* Hero page fills viewport */
+  .hero-page{height:100%;min-height:100%}
+  .hero-page video{height:100%;min-height:100%}
 
-  /* Better paragraph readability */
-  .pg-body{max-width:100%}
-
-  /* Hero page - taller on mobile */
-  .hero-page{min-height:75vh;min-height:75dvh}
-
-  /* Video fit on mobile */
-  .hero-page video{min-height:75vh;min-height:75dvh}
-
-  /* Ring charts */
-  .ring-wrap{width:110px;height:110px}
-  .ring-label{font-size:1.4rem!important}
-
-  /* Tables — wrap in scrollable container */
+  /* Tables — scrollable */
   .ctbl{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
 
-  /* Images — ensure they fit */
-  .page-inner img{max-width:100%;height:auto}
-
-  /* Horizontal scroll hint for tables */
-  .ctbl::after{content:'';display:block;height:0}
+  /* Images — fit viewport */
+  .page-inner img{max-width:100%;max-height:40vh;object-fit:contain;height:auto}
+  .page-inner img[src^="data:image"]{max-height:50vh}
+  .sm-card-img{max-height:35vh!important}
+  .sm-grid-item{min-height:80px;aspect-ratio:1}
 }
 
 /* ═══ MOBILE ANIMATIONS — ensure they fire ═══ */
@@ -952,18 +964,16 @@ canvas{max-height:200px}
     opacity:0.5 !important;
   }
 
-  /* Fix scrollable pages on mobile — remove height restriction, let content flow */
+  /* Scrollable pages — internal scroll within viewport */
   .page-inner.scrollable,.page-inner .scrollable,.scrollable{
-    overflow-y:visible !important;
+    overflow-y:auto !important;
     -webkit-overflow-scrolling:touch !important;
-    max-height:none !important;
-    height:auto !important;
+    height:100% !important;
   }
 
   .page-inner{
-    overflow:visible !important;
-    height:auto !important;
-    min-height:auto !important;
+    overflow-y:auto !important;
+    height:100% !important;
   }
 
   /* Page left full width on mobile */
@@ -977,9 +987,10 @@ canvas{max-height:200px}
     display:none !important;
   }
 
-  /* Scene adjustments — allow content to scroll naturally */
-  .scene{margin-top:0 !important;height:auto !important;min-height:100vh;min-height:100dvh}
-  .book{width:100vw !important;height:auto !important;min-height:calc(100vh - 56px);min-height:calc(100dvh - 56px);border-radius:0 !important;box-shadow:none !important}
+  /* Scene — viewport-locked, no document scroll */
+  .scene{margin-top:0 !important;height:calc(100vh - 56px) !important;height:calc(100dvh - 56px) !important;overflow:hidden !important}
+  .book{width:100vw !important;height:100% !important;border-radius:0 !important;box-shadow:none !important;overflow:hidden !important}
+  .page-left{height:100% !important}
 }
 
 </style>
@@ -2735,6 +2746,9 @@ function render() {
     updateMobileNav();
     initPageScripts();
     boostMobileBgPhotos();
+    // Reset internal scroll to top
+    var pi = pageLeft.querySelector('.page-inner');
+    if (pi) pi.scrollTop = 0;
     return;
   }
 
@@ -2776,7 +2790,7 @@ function nextPage() {
     book.style.opacity = '1';
     book.style.transform = 'translateX(0)';
     render();
-    window.scrollTo({top:0,behavior:'smooth'});
+    // scroll handled by render() resetting page-inner scrollTop
     return;
   }
   if (animating || current >= spreads.length - 1) return;
@@ -2806,7 +2820,7 @@ function prevPage() {
     book.style.opacity = '1';
     book.style.transform = 'translateX(0)';
     render();
-    window.scrollTo({top:0,behavior:'smooth'});
+    // scroll handled by render() resetting page-inner scrollTop
     return;
   }
   if (animating || current <= 0) return;
