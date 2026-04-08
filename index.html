@@ -665,18 +665,18 @@ canvas{max-height:200px}
 @media (max-width: 900px) {
   html,body{overflow-y:auto;overflow-x:hidden}
   .scene{perspective:none;height:auto;min-height:100vh;min-height:100dvh;margin-top:0;padding-bottom:72px}
-  .book{width:100vw;height:auto;min-height:calc(100vh - 72px);min-height:calc(100dvh - 72px);transform:none;box-shadow:none;border-radius:0}
+  .book{width:100vw;height:auto;min-height:auto;transform:none;box-shadow:none;border-radius:0}
   .spine{display:none!important}
-  .page-left{position:relative;width:100%!important;height:auto;min-height:calc(100vh - 72px);min-height:calc(100dvh - 72px);border-radius:0!important}
+  .page-left{position:relative;width:100%!important;height:auto;min-height:auto;border-radius:0!important}
   .page-right-under{display:none!important}
   .flip-container{display:none!important}
   .flip-front{display:none!important}
   .flip-back{display:none!important}
   .flip-container::after{display:none!important}
-  .page-inner{min-height:calc(100vh - 72px);min-height:calc(100dvh - 72px)}
-  .scrollable{overflow-y:visible;height:auto}
-  .pad{padding:32px 24px}
-  .pad-sm{padding:28px 20px}
+  .page-inner{min-height:auto;height:auto;overflow:visible}
+  .scrollable{overflow-y:visible;height:auto;max-height:none}
+  .pad{padding:36px 22px 48px}
+  .pad-sm{padding:32px 20px 44px}
   
   /* Hide desktop nav */
   .nav-arrow{display:none!important}
@@ -690,75 +690,111 @@ canvas{max-height:200px}
   .mobile-overlay{display:block}
   .mobile-bottom-nav{display:flex}
   
-  /* Typography */
-  .pg-title{font-size:clamp(1.6rem,6vw,2.4rem)!important}
-  .pg-body{font-size:0.9rem!important;line-height:1.85!important}
-  .hero-page h1{font-size:clamp(1.8rem,6vw,2.8rem)!important}
-  
-  /* Cards */
-  .card-dark,.card-light{padding:18px 20px;margin-bottom:14px}
-  .card-dark h4,.card-light h4{font-size:0.85rem!important}
-  .card-dark p,.card-light p{font-size:0.85rem!important;line-height:1.8!important}
-  
-  /* Stats */
-  .stat-num{font-size:clamp(2rem,6vw,2.8rem)!important}
-  .stat-lbl{font-size:0.72rem!important}
-  
-  /* Tables */
-  .ctbl{font-size:0.72rem}
-  .ctbl th,.ctbl td{padding:10px 12px}
-  
-  /* Grid */
+  /* Typography — bigger for smartphone readability */
+  .pg-title{font-size:clamp(1.8rem,7vw,2.6rem)!important;margin-bottom:20px!important}
+  .pg-body{font-size:1.05rem!important;line-height:2!important;color:rgba(255,255,255,0.82)!important}
+  .cream .pg-body,.ivory .pg-body{color:#2A2218!important}
+  .hero-page h1{font-size:clamp(2rem,7vw,3rem)!important}
+  .pg-label{font-size:0.82rem!important;letter-spacing:0.2em!important;margin-bottom:20px!important}
+  .pg-sep{width:80px!important;height:2px!important;margin:22px 0!important}
+
+  /* Cards — more padding, bigger text */
+  .card-dark,.card-light{padding:22px 24px;margin-bottom:18px;border-radius:14px}
+  .card-dark h4,.card-light h4{font-size:1rem!important;margin-bottom:10px!important}
+  .card-dark p,.card-light p{font-size:1rem!important;line-height:1.9!important}
+
+  /* Stats — bigger numbers */
+  .stat-num{font-size:clamp(2.4rem,8vw,3.2rem)!important}
+  .stat-lbl{font-size:0.82rem!important;margin-top:8px!important}
+  .stat-block{padding:28px 14px}
+
+  /* Tables — horizontal scroll wrapper */
+  .ctbl{font-size:0.82rem}
+  .ctbl th,.ctbl td{padding:12px 14px;white-space:nowrap}
+  .ctbl td:first-child,.ctbl th:first-child{white-space:normal;min-width:100px}
+
+  /* Grid — single column on mobile */
   .dual{grid-template-columns:1fr}
-  
+
   /* Charts */
-  .chart-wrap{padding:14px;margin-bottom:16px}
-  canvas{max-height:180px}
-  
-  /* Social cards - AGRANDIS */
-  .sm-card{margin-bottom:24px;border-radius:16px}
+  .chart-wrap{padding:18px;margin-bottom:20px;border-radius:14px}
+  canvas{max-height:220px}
+
+  /* Social cards — comfortable sizing */
+  .sm-card{margin-bottom:28px;border-radius:18px}
   .sm-card-img{max-height:500px;height:auto;object-fit:contain!important}
-  .sm-text{font-size:1.3rem!important;line-height:1.8!important}
-  .sm-author{font-size:1.15rem!important}
-  .sm-tags{font-size:1.1rem!important}
-  .sm-handle{font-size:0.95rem!important}
-  .sm-card-body{padding:28px 30px!important}
-  .sm-card-header{padding:18px 24px!important}
-  .sm-avatar{width:56px!important;height:56px!important}
-  .sm-stats{font-size:1.05rem!important}
-  
-  /* SONCAS */
-  .sc{padding:18px;margin-bottom:10px}
-  .sc p{font-size:0.85rem!important;line-height:1.75!important}
-  
-  /* Q&A */
-  .qa{padding:14px 18px}
-  .qa-q{font-size:0.88rem!important}
-  .qa-a{font-size:0.85rem!important}
-  
+  .sm-text{font-size:1.1rem!important;line-height:1.85!important}
+  .sm-author{font-size:1.1rem!important}
+  .sm-tags{font-size:1.05rem!important}
+  .sm-handle{font-size:0.9rem!important}
+  .sm-card-body{padding:24px 22px!important}
+  .sm-card-header{padding:16px 22px!important}
+  .sm-avatar{width:50px!important;height:50px!important}
+  .sm-stats{font-size:0.95rem!important}
+
+  /* SONCAS — bigger text */
+  .sc{padding:20px;margin-bottom:16px;border-radius:12px}
+  .sc h4{font-size:0.9rem!important}
+  .sc p{font-size:1rem!important;line-height:1.85!important}
+  .sc .pitch{font-size:0.95rem!important;line-height:1.75!important;padding:14px 18px}
+
+  /* Q&A — bigger, more tappable */
+  .qa{padding:18px 20px;margin-bottom:12px;border-radius:12px}
+  .qa-q{font-size:1rem!important}
+  .qa-a{font-size:0.98rem!important;line-height:1.85!important}
+
   /* Testimonials */
-  .testi-text{font-size:1.05rem!important}
-  
-  /* Certs */
-  .cert{font-size:0.68rem;padding:5px 12px}
-  
+  .testi{padding:20px 0 20px 22px;margin-bottom:22px}
+  .testi-text{font-size:1.15rem!important;line-height:1.7!important}
+  .testi-author{font-size:0.82rem!important}
+
+  /* Certs — bigger pills */
+  .cert{font-size:0.78rem;padding:8px 16px;margin:5px 3px;border-radius:24px}
+
+  /* Alerts — bigger text */
+  .alert-red,.alert-green{padding:20px 22px;margin-bottom:18px;border-radius:12px}
+  .alert-red h5,.alert-green h5{font-size:0.88rem!important;margin-bottom:10px!important}
+  .alert-red p,.alert-green p{font-size:1rem!important;line-height:1.9!important}
+
+  /* Gold badge */
+  .gold-badge{font-size:0.78rem;padding:8px 20px;margin-bottom:28px}
+
+  /* Progress bars */
+  .pbar-label{font-size:0.82rem!important}
+  .pbar-track{height:10px;border-radius:6px}
+
+  /* Calculator inputs */
+  .calc-in{font-size:1rem;padding:14px 18px}
+  .calc-label{font-size:0.78rem}
+  .res-val{font-size:2.6rem}
+  .res-lbl{font-size:0.78rem}
+
   /* Page counter dots */
   .page-dots{gap:4px}
   .dot{width:5px;height:5px}
 }
 
 @media (max-width: 480px) {
-  .pad{padding:24px 18px}
-  .pad-sm{padding:20px 16px}
-  .pg-title{font-size:clamp(1.3rem,5.5vw,1.8rem)!important}
-  .stat-num{font-size:clamp(1.6rem,5vw,2.2rem)!important}
-  .card-dark,.card-light{padding:14px 16px}
-  .sc{padding:14px}
-  .qa{padding:10px 14px}
+  .pad{padding:28px 16px 40px}
+  .pad-sm{padding:24px 14px 36px}
+  .pg-title{font-size:clamp(1.5rem,6.5vw,2rem)!important}
+  .pg-body{font-size:0.98rem!important;line-height:1.95!important}
+  .stat-num{font-size:clamp(2rem,7vw,2.6rem)!important}
+  .stat-lbl{font-size:0.78rem!important}
+  .card-dark,.card-light{padding:18px 18px}
+  .card-dark p,.card-light p{font-size:0.95rem!important}
+  .sc{padding:16px}
+  .sc p{font-size:0.95rem!important}
+  .qa{padding:16px 18px}
+  .qa-q{font-size:0.95rem!important}
+  .qa-a{font-size:0.92rem!important}
   .scene{margin-top:0}
-  .hero-page .hero-tag{font-size:0.58rem!important;letter-spacing:2px!important}
+  .hero-page .hero-tag{font-size:0.62rem!important;letter-spacing:2.5px!important}
   .sm-card-img{max-height:400px;height:auto;object-fit:contain!important}
+  .sm-text{font-size:1rem!important}
   .hero-page{min-height:60vh}
+  .alert-red p,.alert-green p{font-size:0.95rem!important}
+  .testi-text{font-size:1.05rem!important}
 }
 
 /* Touch support */
@@ -771,44 +807,31 @@ canvas{max-height:200px}
 @media (max-width: 900px) {
   /* Smooth page transitions */
   .book{transition:opacity 0.35s ease,transform 0.35s ease}
-  
-  /* Better spacing between left and right pages */
-  .page-left{border-bottom:3px solid rgba(196,160,80,0.08)}
-  
+
   /* Cover page full height */
   .page-left:first-child .page-inner{min-height:85vh;min-height:85dvh}
-  
+
   /* Better paragraph readability */
-  .pg-body{max-width:600px}
-  
-  /* Gold separator more visible */
-  .pg-sep{width:64px;height:2px;margin:18px 0}
-  
-  /* Labels bigger */
-  .pg-label{font-size:0.75rem!important;letter-spacing:0.25em!important;margin-bottom:18px!important}
-  
+  .pg-body{max-width:100%}
+
   /* Hero page - taller on mobile */
-  .hero-page{min-height:70vh;min-height:70dvh}
-  
+  .hero-page{min-height:75vh;min-height:75dvh}
+
   /* Video fit on mobile */
-  .hero-page video{min-height:70vh;min-height:70dvh}
-  
-  /* Better cert pills */
-  .cert{font-size:0.72rem;padding:6px 14px;margin:4px 2px}
-  
-  /* Progress bars */
-  .pbar-track{height:10px;border-radius:5px}
-  
+  .hero-page video{min-height:75vh;min-height:75dvh}
+
   /* Ring charts */
-  .ring-wrap{width:100px;height:100px}
-  
-  /* Testimonials */
-  .testi{padding:18px 0 18px 20px;margin-bottom:20px;border-left-width:3px}
-  
-  /* Alerts */
-  .alert-red,.alert-green{padding:18px 20px;margin-bottom:16px}
-  .alert-red h5,.alert-green h5{font-size:0.78rem!important}
-  .alert-red p,.alert-green p{font-size:0.85rem!important;line-height:1.8!important}
+  .ring-wrap{width:110px;height:110px}
+  .ring-label{font-size:1.4rem!important}
+
+  /* Tables — wrap in scrollable container */
+  .ctbl{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  /* Images — ensure they fit */
+  .page-inner img{max-width:100%;height:auto}
+
+  /* Horizontal scroll hint for tables */
+  .ctbl::after{content:'';display:block;height:0}
 }
 
 /* ═══ MOBILE ANIMATIONS — ensure they fire ═══ */
@@ -929,11 +952,18 @@ canvas{max-height:200px}
     opacity:0.5 !important;
   }
 
-  /* Fix scrollable pages on mobile */
+  /* Fix scrollable pages on mobile — remove height restriction, let content flow */
   .page-inner.scrollable,.page-inner .scrollable,.scrollable{
-    overflow-y:auto !important;
+    overflow-y:visible !important;
     -webkit-overflow-scrolling:touch !important;
-    max-height:calc(100vh - 120px) !important;
+    max-height:none !important;
+    height:auto !important;
+  }
+
+  .page-inner{
+    overflow:visible !important;
+    height:auto !important;
+    min-height:auto !important;
   }
 
   /* Page left full width on mobile */
@@ -947,9 +977,9 @@ canvas{max-height:200px}
     display:none !important;
   }
 
-  /* Scene adjustments */
-  .scene{margin-top:0 !important;height:100vh !important}
-  .book{width:100vw !important;height:100vh !important;border-radius:0 !important;box-shadow:none !important}
+  /* Scene adjustments — allow content to scroll naturally */
+  .scene{margin-top:0 !important;height:auto !important;min-height:100vh;min-height:100dvh}
+  .book{width:100vw !important;height:auto !important;min-height:calc(100vh - 56px);min-height:calc(100dvh - 56px);border-radius:0 !important;box-shadow:none !important}
 }
 
 </style>
