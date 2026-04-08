@@ -2780,9 +2780,26 @@ function render() {
     updateMobileNav();
     initPageScripts();
     boostMobileBgPhotos();
-    // Reset internal scroll to top
+    // ═══ MOBILE FIX: force content to start from top ═══
     var pi = pageLeft.querySelector('.page-inner');
-    if (pi) pi.scrollTop = 0;
+    if (pi) {
+      // Fix all flex containers: justify-content:center/space-evenly → flex-start
+      // This prevents content from overflowing ABOVE the viewport when taller than screen
+      var allEls = pi.querySelectorAll('*');
+      for (var i = 0; i < allEls.length; i++) {
+        var jc = allEls[i].style.justifyContent;
+        if (jc === 'center' || jc === 'space-evenly' || jc === 'space-between') {
+          allEls[i].style.justifyContent = 'flex-start';
+        }
+        // Also fix height:100% on inner containers — use min-height instead
+        if (allEls[i].style.height === '100%' && allEls[i].classList.contains('pad') || allEls[i].classList.contains('pad-sm') || (allEls[i].style.display === 'flex' && allEls[i].style.height === '100%')) {
+          allEls[i].style.height = 'auto';
+          allEls[i].style.minHeight = '100%';
+        }
+      }
+      // Reset internal scroll to top
+      pi.scrollTop = 0;
+    }
     return;
   }
 
