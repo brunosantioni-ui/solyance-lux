@@ -2780,19 +2780,25 @@ function render() {
     updateMobileNav();
     initPageScripts();
     boostMobileBgPhotos();
-    // ═══ MOBILE FIX: force content to start from top ═══
+    // ═══ MOBILE FIX: force content to start from top & enable scroll ═══
     var pi = pageLeft.querySelector('.page-inner');
     if (pi) {
-      // Fix all flex containers: justify-content:center/space-evenly → flex-start
-      // This prevents content from overflowing ABOVE the viewport when taller than screen
+      // CRITICAL: override inline overflow:hidden so content can scroll
+      pi.style.overflowY = 'auto';
+      pi.style.overflowX = 'hidden';
+      pi.style.webkitOverflowScrolling = 'touch';
+      pi.style.height = '100%';
+
+      // Fix all flex containers inside
       var allEls = pi.querySelectorAll('*');
       for (var i = 0; i < allEls.length; i++) {
+        // justify-content:center/space-evenly → flex-start (prevent top content from going above viewport)
         var jc = allEls[i].style.justifyContent;
         if (jc === 'center' || jc === 'space-evenly' || jc === 'space-between') {
           allEls[i].style.justifyContent = 'flex-start';
         }
-        // Also fix height:100% on inner containers — use min-height instead
-        if (allEls[i].style.height === '100%' && allEls[i].classList.contains('pad') || allEls[i].classList.contains('pad-sm') || (allEls[i].style.display === 'flex' && allEls[i].style.height === '100%')) {
+        // height:100% → auto on flex containers (let content grow and scroll)
+        if (allEls[i].style.height === '100%' && (allEls[i].style.display === 'flex' || allEls[i].classList.contains('pad') || allEls[i].classList.contains('pad-sm'))) {
           allEls[i].style.height = 'auto';
           allEls[i].style.minHeight = '100%';
         }
