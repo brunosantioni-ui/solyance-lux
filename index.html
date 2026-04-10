@@ -343,9 +343,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1a1208;font-family:
 
 /* ── PAGE CONTENT BASE ── */
 .page-inner{width:100%;height:100%;overflow:hidden;position:relative}
-.page-inner.dark{background:#0A0804}
+.page-inner.dark{background:#1E1A14}
 .page-inner.cream{background:#F7F3EC}
-.page-inner.charcoal{background:#111118}
+.page-inner.charcoal{background:#1F1F28}
 .page-inner.ivory{background:#FDFAF5}
 
 /* ─── TYPOGRAPHY — DARK PAGES ─── */
@@ -489,16 +489,16 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1a1208;font-family:
 .cream .alert-green h5,.ivory .alert-green h5{color:#166534}
 
 /* ── HERO PAGE (full-bleed) ── */
-.hero-page{position:relative;width:100%;height:100%;overflow:hidden;background:#0A0804}
+.hero-page{position:relative;width:100%;height:100%;overflow:hidden;background:#1E1A14}
 .hero-page video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.78}
 .hero-page canvas{position:absolute;inset:0;z-index:1}
-.hero-page .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,4,0.4) 0%,rgba(10,8,4,0.3) 50%,rgba(10,8,4,0.6) 100%);z-index:2}
+.hero-page .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,26,20,0.4) 0%,rgba(30,26,20,0.3) 50%,rgba(30,26,20,0.6) 100%);z-index:2}
 .hero-page .hero-txt{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px}
 .hero-page h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,5rem);font-weight:300;color:#fff;line-height:1.05;animation:fadeUp 1s 0.6s both}
 .hero-page h1 em{font-style:italic;color:#C4A050;display:block}
 .hero-page .hero-sub{margin-top:24px;font-size:0.72rem;letter-spacing:4px;font-weight:300;color:#C4A050;text-transform:uppercase;animation:fadeUp 1s 0.9s both}
 .hero-page .hero-tag{font-size:0.68rem;font-weight:700;letter-spacing:5px;color:#C4A050;text-transform:uppercase;margin-bottom:20px;animation:fadeUp 1s 0.3s both}
-.hero-page .hero-play{width:80px;height:80px;border-radius:50%;border:1.5px solid rgba(196,160,80,0.5);background:rgba(10,8,4,0.35);display:flex;align-items:center;justify-content:center;margin-top:36px;cursor:pointer;transition:all 0.4s;text-decoration:none;animation:fadeUp 1s 1.2s both}
+.hero-page .hero-play{width:80px;height:80px;border-radius:50%;border:1.5px solid rgba(196,160,80,0.5);background:rgba(30,26,20,0.35);display:flex;align-items:center;justify-content:center;margin-top:36px;cursor:pointer;transition:all 0.4s;text-decoration:none;animation:fadeUp 1s 1.2s both}
 .hero-page .hero-play:hover{background:rgba(196,160,80,0.2);box-shadow:0 0 40px rgba(196,160,80,0.3);transform:scale(1.1)}
 .hero-page .hero-play svg{fill:#C4A050;width:24px;height:24px;margin-left:3px}
 .hero-page .hero-play-lbl{font-size:0.62rem;letter-spacing:4px;text-transform:uppercase;color:rgba(196,160,80,0.7);margin-top:12px;animation:fadeUp 1s 1.4s both}
@@ -550,7 +550,7 @@ canvas{max-height:200px}
 .hamburger{
   display:none;position:fixed;top:12px;left:12px;z-index:3000;
   width:48px;height:48px;border-radius:12px;
-  background:rgba(10,8,4,0.9);border:1.5px solid rgba(196,160,80,0.35);
+  background:rgba(30,26,20,0.9);border:1.5px solid rgba(196,160,80,0.35);
   backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:6px;
   box-shadow:0 4px 20px rgba(0,0,0,0.4);
@@ -685,7 +685,7 @@ canvas{max-height:200px}
   .page-inner::after{
     content:'';position:sticky;bottom:0;left:0;right:0;
     display:block;height:32px;pointer-events:none;
-    background:linear-gradient(to top,rgba(10,8,4,0.6),transparent);
+    background:linear-gradient(to top,rgba(30,26,20,0.6),transparent);
     margin-top:-32px;z-index:10;
   }
   .page-inner.cream::after,.page-inner.ivory::after{
@@ -1066,7 +1066,7 @@ canvas{max-height:200px}
   <div class="book" id="book">
     <div class="spine"></div>
     <!-- Left page (static) -->
-    <div class="page-left" id="pageLeft"><div class="page-inner dark" style="position:relative;overflow:hidden"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1800&q=85&fit=crop" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.3" alt=""><div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 40%,rgba(10,8,4,0.5) 0%,rgba(10,8,4,0.88) 100%)"></div><div class="cover-deco"></div><div class="cover-grid"></div><div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 40px"><div class="logo-svg-wrap" style="justify-content:center;margin-bottom:36px"><svg width="42" height="48" viewBox="0 0 7010 9880" style="filter:drop-shadow(0 0 6px rgba(196,160,80,0.35))">
+    <div class="page-left" id="pageLeft"><div class="page-inner dark" style="position:relative;overflow:hidden"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1800&q=85&fit=crop" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.45" alt=""><div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 40%,rgba(30,26,20,0.35) 0%,rgba(30,26,20,0.72) 100%)"></div><div class="cover-deco"></div><div class="cover-grid"></div><div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 40px"><div class="logo-svg-wrap" style="justify-content:center;margin-bottom:36px"><svg width="42" height="48" viewBox="0 0 7010 9880" style="filter:drop-shadow(0 0 6px rgba(196,160,80,0.35))">
   <defs>
     <linearGradient id="gT" x1="0.1" y1="0" x2="0.9" y2="1">
       <stop offset="0%" stop-color="#FFF8E0"/><stop offset="40%" stop-color="#F0D870"/>
@@ -1081,14 +1081,14 @@ canvas{max-height:200px}
   <path d="M1030 6780 c-234 -43 -400 -259 -363 -473 17 -99 1220 -3861 1264 -3953 75 -159 207 -308 354 -399 39 -24 984 -469 2100 -988 2212 -1030 2100 -982 2228 -957 140 27 252 115 315 248 35 73 37 82 37 178 0 185 276 -131 -2755 3162 -1471 1598 -2717 2950 -2769 3005 -95 99 -143 135 -216 160 -55 19 -141 27 -195 17z" fill="url(#gB)"/>
 </svg><div class="logo-txt-block"><span class="logo-sup" style="font-size:0.75rem;font-weight:800">Groupe</span><span class="logo-main" style="font-size:1.3rem;font-weight:700;letter-spacing:0.05em">Solyance - Lux</span></div></div><div><div style="width:50px;height:1px;background:linear-gradient(90deg,#C4A050,transparent);margin-bottom:20px"></div><h1 style="font-family:’Cormorant Garamond’,serif;font-size:clamp(3.2rem,5.5vw,5rem);font-weight:300;color:#fff;line-height:0.95;margin-bottom:22px">Collection<br><em style="font-style:italic;color:#C4A050">2026</em></h1><p style="font-family:’Cormorant Garamond’,serif;font-size:0.98rem;color:rgba(255,255,255,0.52);line-height:1.8;max-width:300px;font-weight:300;font-style:italic">La technologie d’éclairage qui reproduit le spectre du soleil — brevetée, certifiée, Made in France.</p></div><p style="font-size:0.56rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:rgba(196,160,80,0.32)">Confidentiel — À usage interne exclusif</p></div></div></div>
     <!-- Next right page (visible under flip) -->
-    <div class="page-right-under" id="pageRightUnder"><div class="hero-page" style="background:#0A0804">
-  <video autoplay="" muted="" loop="" playsinline="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.78">
+    <div class="page-right-under" id="pageRightUnder"><div class="hero-page" style="background:#1E1A14">
+  <video autoplay="" muted="" loop="" playsinline="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.88">
     <source src="https://videos.pexels.com/video-files/6901759/6901759-hd_1920_1080_24fps.mp4" type="video/mp4">
   </video>
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,4,0.2) 0%,rgba(10,8,4,0.4) 60%,rgba(10,8,4,0.7) 100%);z-index:2"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,26,20,0.2) 0%,rgba(30,26,20,0.4) 60%,rgba(30,26,20,0.7) 100%);z-index:2"></div>
   <div style="position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:40px 40px 80px;text-align:center">
     <p style="font-size:0.68rem;letter-spacing:4px;font-weight:300;color:#C4A050;text-transform:uppercase;margin-bottom:32px;animation:fadeUp 1s 1s both">Le soleil comme source · L'avenir comme destination</p>
-    <a href="https://brunosantioni-ui.github.io/film-solyance-lux/" target="_blank" style="width:84px;height:84px;border-radius:50%;border:1.5px solid rgba(196,160,80,0.55);background:rgba(10,8,4,0.35);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.4s;text-decoration:none;animation:fadeUp 1s 1.2s both">
+    <a href="https://brunosantioni-ui.github.io/film-solyance-lux/" target="_blank" style="width:84px;height:84px;border-radius:50%;border:1.5px solid rgba(196,160,80,0.55);background:rgba(30,26,20,0.35);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.4s;text-decoration:none;animation:fadeUp 1s 1.2s both">
       <svg viewBox="0 0 24 24" width="26" height="26" style="fill:#C4A050;margin-left:3px"><polygon points="6,3 20,12 6,21"></polygon></svg>
     </a>
     <p style="font-size:0.62rem;letter-spacing:4px;text-transform:uppercase;color:rgba(196,160,80,0.65);margin-top:14px;animation:fadeUp 1s 1.4s both">Découvrir le film</p>
@@ -1097,13 +1097,13 @@ canvas{max-height:200px}
 </div></div>
     <!-- Flip container -->
     <div class="flip-container" id="flipContainer">
-      <div class="flip-front" id="flipFront"><div class="page-inner dark" style="position:relative;overflow:hidden"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1800&q=85&fit=crop" style="position:absolute;inset:0;width:200%;height:100%;object-fit:cover;object-position:right center;opacity:0.42;transform:translateX(-50%)" alt=""><div style="position:absolute;inset:0;background:linear-gradient(260deg,rgba(10,8,4,0.92) 0%,rgba(10,8,4,0.55) 60%,rgba(10,8,4,0.1) 100%)"></div><div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:52px 48px"><div style="display:flex;flex-direction:column;gap:9px;align-items:flex-end"><div class="cert">Brevet INPI</div><div class="cert">Made in France</div><div class="cert">Certifié Bureau Véritas</div></div><div style="display:flex;flex-direction:column;gap:24px"><div style="border-left:2px solid rgba(196,160,80,0.45);padding-left:18px"><div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:#fff;line-height:1">172 <span style="font-size:1.1rem;font-weight:300">lm/W</span></div><div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,160,80,0.65);margin-top:4px">Efficacité certifiée Piséo</div></div><div style="border-left:2px solid rgba(196,160,80,0.45);padding-left:18px"><div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:#fff;line-height:1">93+ <span style="font-size:1.1rem;font-weight:300">IRC</span></div><div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,160,80,0.65);margin-top:4px">Indice de rendu des couleurs</div></div><div style="border-left:2px solid rgba(196,160,80,0.45);padding-left:18px"><div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:#fff;line-height:1">40 <span style="font-size:1.1rem;font-weight:300">ans</span></div><div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,160,80,0.65);margin-top:4px">Durée de vie FEMTO-ST</div></div></div><div style="text-align:right"><p style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.42);font-style:italic;line-height:1.6">« Vos espaces méritent une lumière à leur hauteur. »</p></div></div></div></div>
+      <div class="flip-front" id="flipFront"><div class="page-inner dark" style="position:relative;overflow:hidden"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1800&q=85&fit=crop" style="position:absolute;inset:0;width:200%;height:100%;object-fit:cover;object-position:right center;opacity:0.58;transform:translateX(-50%)" alt=""><div style="position:absolute;inset:0;background:linear-gradient(260deg,rgba(30,26,20,0.78) 0%,rgba(30,26,20,0.42) 60%,rgba(30,26,20,0.08) 100%)"></div><div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:52px 48px"><div style="display:flex;flex-direction:column;gap:9px;align-items:flex-end"><div class="cert">Brevet INPI</div><div class="cert">Made in France</div><div class="cert">Certifié Bureau Véritas</div></div><div style="display:flex;flex-direction:column;gap:24px"><div style="border-left:2px solid rgba(196,160,80,0.45);padding-left:18px"><div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:#fff;line-height:1">172 <span style="font-size:1.1rem;font-weight:300">lm/W</span></div><div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,160,80,0.65);margin-top:4px">Efficacité certifiée Piséo</div></div><div style="border-left:2px solid rgba(196,160,80,0.45);padding-left:18px"><div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:#fff;line-height:1">93+ <span style="font-size:1.1rem;font-weight:300">IRC</span></div><div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,160,80,0.65);margin-top:4px">Indice de rendu des couleurs</div></div><div style="border-left:2px solid rgba(196,160,80,0.45);padding-left:18px"><div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:#fff;line-height:1">40 <span style="font-size:1.1rem;font-weight:300">ans</span></div><div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,160,80,0.65);margin-top:4px">Durée de vie FEMTO-ST</div></div></div><div style="text-align:right"><p style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.42);font-style:italic;line-height:1.6">« Vos espaces méritent une lumière à leur hauteur. »</p></div></div></div></div>
       <div class="flip-back" id="flipBack"><div class="hero-page" id="heroLeft">
-  <video autoplay="" muted="" loop="" playsinline="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.78">
+  <video autoplay="" muted="" loop="" playsinline="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.88">
     <source src="https://videos.pexels.com/video-files/6901759/6901759-hd_1920_1080_24fps.mp4" type="video/mp4">
   </video>
   <canvas id="particlesCanvas1" style="position:absolute;inset:0;z-index:1;width:100%;height:100%" width="240" height="712"></canvas>
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,4,0.5) 0%,rgba(10,8,4,0.2) 40%,rgba(10,8,4,0.6) 100%);z-index:2"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,26,20,0.5) 0%,rgba(30,26,20,0.2) 40%,rgba(30,26,20,0.6) 100%);z-index:2"></div>
   <div style="position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center">
     <div class="logo-svg-wrap" style="justify-content:center;margin-bottom:32px;animation:fadeUp 1s 0.2s both"><svg width="42" height="48" viewBox="0 0 7010 9880" style="filter:drop-shadow(0 0 6px rgba(196,160,80,0.35))">
   <defs>
@@ -1164,8 +1164,8 @@ const spreads = [
 
 {
 left:`<div class="page-inner dark" style="position:relative;overflow:hidden">
-  <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1800&q=85&fit=crop" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.3" alt="">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 40%,rgba(10,8,4,0.5) 0%,rgba(10,8,4,0.88) 100%)"></div>
+  <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1800&q=85&fit=crop" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.45" alt="">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 40%,rgba(30,26,20,0.35) 0%,rgba(30,26,20,0.72) 100%)"></div>
   <div class="cover-deco"></div>
   <div class="cover-grid"></div>
   <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 40px">
@@ -1180,16 +1180,16 @@ left:`<div class="page-inner dark" style="position:relative;overflow:hidden">
   </div>
 </div>`,
 
-right:`<div class="page-inner dark" style="position:relative;overflow:hidden"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1800&q=85&fit=crop" style="position:absolute;inset:0;width:200%;height:100%;object-fit:cover;object-position:right center;opacity:0.42;transform:translateX(-50%)" alt=""><div style="position:absolute;inset:0;background:linear-gradient(260deg,rgba(10,8,4,0.92) 0%,rgba(10,8,4,0.55) 60%,rgba(10,8,4,0.1) 100%)"></div><div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:52px 48px"><div style="display:flex;flex-direction:column;gap:9px;align-items:flex-end"><div class="cert">Brevet INPI</div><div class="cert">Made in France</div><div class="cert">Certifié Bureau Véritas</div></div><div style="display:flex;flex-direction:column;gap:24px"><div style="border-left:2px solid rgba(196,160,80,0.45);padding-left:18px"><div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:#fff;line-height:1">172 <span style="font-size:1.1rem;font-weight:300">lm/W</span></div><div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,160,80,0.65);margin-top:4px">Efficacité certifiée Piséo</div></div><div style="border-left:2px solid rgba(196,160,80,0.45);padding-left:18px"><div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:#fff;line-height:1">93+ <span style="font-size:1.1rem;font-weight:300">IRC</span></div><div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,160,80,0.65);margin-top:4px">Indice de rendu des couleurs</div></div><div style="border-left:2px solid rgba(196,160,80,0.45);padding-left:18px"><div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:#fff;line-height:1">40 <span style="font-size:1.1rem;font-weight:300">ans</span></div><div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,160,80,0.65);margin-top:4px">Durée de vie FEMTO-ST</div></div></div><div style="text-align:right"><p style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.42);font-style:italic;line-height:1.6">« Vos espaces méritent une lumière à leur hauteur. »</p></div></div></div>`
+right:`<div class="page-inner dark" style="position:relative;overflow:hidden"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1800&q=85&fit=crop" style="position:absolute;inset:0;width:200%;height:100%;object-fit:cover;object-position:right center;opacity:0.58;transform:translateX(-50%)" alt=""><div style="position:absolute;inset:0;background:linear-gradient(260deg,rgba(30,26,20,0.78) 0%,rgba(30,26,20,0.42) 60%,rgba(30,26,20,0.08) 100%)"></div><div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:52px 48px"><div style="display:flex;flex-direction:column;gap:9px;align-items:flex-end"><div class="cert">Brevet INPI</div><div class="cert">Made in France</div><div class="cert">Certifié Bureau Véritas</div></div><div style="display:flex;flex-direction:column;gap:24px"><div style="border-left:2px solid rgba(196,160,80,0.45);padding-left:18px"><div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:#fff;line-height:1">172 <span style="font-size:1.1rem;font-weight:300">lm/W</span></div><div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,160,80,0.65);margin-top:4px">Efficacité certifiée Piséo</div></div><div style="border-left:2px solid rgba(196,160,80,0.45);padding-left:18px"><div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:#fff;line-height:1">93+ <span style="font-size:1.1rem;font-weight:300">IRC</span></div><div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,160,80,0.65);margin-top:4px">Indice de rendu des couleurs</div></div><div style="border-left:2px solid rgba(196,160,80,0.45);padding-left:18px"><div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:#fff;line-height:1">40 <span style="font-size:1.1rem;font-weight:300">ans</span></div><div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,160,80,0.65);margin-top:4px">Durée de vie FEMTO-ST</div></div></div><div style="text-align:right"><p style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.42);font-style:italic;line-height:1.6">« Vos espaces méritent une lumière à leur hauteur. »</p></div></div></div>`
 },
 
 {
 left:`<div class="hero-page" id="heroLeft">
-  <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.78">
+  <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.88">
     <source src="https://videos.pexels.com/video-files/6901759/6901759-hd_1920_1080_24fps.mp4" type="video/mp4">
   </video>
   <canvas id="particlesCanvas1" style="position:absolute;inset:0;z-index:1;width:100%;height:100%"></canvas>
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,4,0.5) 0%,rgba(10,8,4,0.2) 40%,rgba(10,8,4,0.6) 100%);z-index:2"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,26,20,0.5) 0%,rgba(30,26,20,0.2) 40%,rgba(30,26,20,0.6) 100%);z-index:2"></div>
   <div style="position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center">
     <div class="logo-svg-wrap" style="justify-content:center;margin-bottom:32px;animation:fadeUp 1s 0.2s both">${LOGO_FULL}</div>
     <p class="hero-tag" style="font-size:0.65rem;font-weight:700;letter-spacing:5px;color:#C4A050;text-transform:uppercase;margin-bottom:20px;animation:fadeUp 1s 0.4s both">Groupe Solyance — Innovation Lumineuse Brevetée</p>
@@ -1197,14 +1197,14 @@ left:`<div class="hero-page" id="heroLeft">
   </div>
 </div>`,
 
-right:`<div class="hero-page" style="background:#0A0804">
-  <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.78">
+right:`<div class="hero-page" style="background:#1E1A14">
+  <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.88">
     <source src="https://videos.pexels.com/video-files/6901759/6901759-hd_1920_1080_24fps.mp4" type="video/mp4">
   </video>
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,4,0.2) 0%,rgba(10,8,4,0.4) 60%,rgba(10,8,4,0.7) 100%);z-index:2"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,26,20,0.2) 0%,rgba(30,26,20,0.4) 60%,rgba(30,26,20,0.7) 100%);z-index:2"></div>
   <div style="position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:40px 40px 80px;text-align:center">
     <p style="font-size:0.68rem;letter-spacing:4px;font-weight:300;color:#C4A050;text-transform:uppercase;margin-bottom:32px;animation:fadeUp 1s 1s both">Le soleil comme source · L'avenir comme destination</p>
-    <a href="https://brunosantioni-ui.github.io/film-solyance-lux/" target="_blank" style="width:84px;height:84px;border-radius:50%;border:1.5px solid rgba(196,160,80,0.55);background:rgba(10,8,4,0.35);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.4s;text-decoration:none;animation:fadeUp 1s 1.2s both">
+    <a href="https://brunosantioni-ui.github.io/film-solyance-lux/" target="_blank" style="width:84px;height:84px;border-radius:50%;border:1.5px solid rgba(196,160,80,0.55);background:rgba(30,26,20,0.35);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.4s;text-decoration:none;animation:fadeUp 1s 1.2s both">
       <svg viewBox="0 0 24 24" width="26" height="26" style="fill:#C4A050;margin-left:3px"><polygon points="6,3 20,12 6,21"/></svg>
     </a>
     <p style="font-size:0.62rem;letter-spacing:4px;text-transform:uppercase;color:rgba(196,160,80,0.65);margin-top:14px;animation:fadeUp 1s 1.4s both">Découvrir le film</p>
@@ -1453,7 +1453,7 @@ right:`<div class="page-inner dark scrollable">
 {
 left:`<div class="page-inner dark scrollable" style="position:relative">
   <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&fit=crop" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.25" alt="">
-  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(10,8,4,0.95) 30%,rgba(10,8,4,0.6) 100%)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(30,26,20,0.95) 30%,rgba(30,26,20,0.6) 100%)"></div>
   <div class="pad scrollable" style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-evenly">
     <span class="pg-label">Levier N°2 — Santé</span>
     <h2 class="pg-title">Moins d'absentéisme.<br><em>Plus de performance.</em></h2>
@@ -1551,7 +1551,7 @@ right:`<div class="page-inner ivory scrollable" style="position:relative">
 {
 left:`<div class="page-inner dark scrollable" style="position:relative">
   <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80&fit=crop" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.15" alt="">
-  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(10,8,4,0.95) 30%,rgba(10,8,4,0.7) 100%)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(30,26,20,0.95) 30%,rgba(30,26,20,0.7) 100%)"></div>
   <div class="pad" style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-evenly">
     <span class="pg-label">Levier N°4 — Conformité légale</span>
     <h2 class="pg-title">La loi vous oblige<br><em>à agir.</em></h2>
@@ -1686,7 +1686,7 @@ right:`<div class="page-inner charcoal scrollable" style="position:relative">
 {
 left:`<div class="page-inner dark scrollable" style="position:relative">
   <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80&fit=crop" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.12" alt="">
-  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(10,8,4,0.95) 20%,rgba(10,8,4,0.75) 100%)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(30,26,20,0.95) 20%,rgba(30,26,20,0.75) 100%)"></div>
   <div class="pad-sm" style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center">
     <span class="pg-label">Partie technique</span>
     <h2 class="pg-title">Les chiffres<br><em>qui prouvent tout.</em></h2>
@@ -1953,7 +1953,7 @@ right:`<div class="page-inner charcoal scrollable">
 {
 left:`<div class="page-inner dark scrollable" style="position:relative">
   <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80&fit=crop" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.15" alt="">
-  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(10,8,4,0.92) 30%,rgba(10,8,4,0.7) 100%)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(30,26,20,0.92) 30%,rgba(30,26,20,0.7) 100%)"></div>
   <div class="pad-sm" style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-evenly">
     <div class="gold-badge">🇫🇷 Fierté française</div>
     <span class="pg-label">Fabrication 100% française</span>
